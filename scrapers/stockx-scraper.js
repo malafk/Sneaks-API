@@ -42,6 +42,9 @@ module.exports = {
                     releaseDate: json.hits[i].release_date,
                     description: json.hits[i].description,
                     urlKey: json.hits[i].url,
+                    sales72: json.hits[i].sales_last_72,
+                    lowestAsk: json.hits[i].lowest_ask,
+                    lastSale: json.hits[i].last_sale,
                     resellLinks: {
                         stockX: 'https://stockx.com/' + json.hits[i].url
                     }

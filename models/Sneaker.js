@@ -16,6 +16,9 @@ var SneakerSchema = new Schema({
     make: String,
     goatProductId: Number,
     colorway: String,
+    sales72: Number,
+    lowestAsk: Number,
+    lastSale: Number,
     resellLinks:{
         stockX: String,
         stadiumGoods: String,
