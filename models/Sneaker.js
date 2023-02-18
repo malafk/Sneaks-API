@@ -23,7 +23,8 @@ var SneakerSchema = new Schema({
         stockX: String,
         stadiumGoods: String,
         goat: String,
-        flightClub: String
+        flightClub: String,
+        laced: String
     },
     size: Number,
     lowestResellPrice:{
