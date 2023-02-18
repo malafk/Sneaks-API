@@ -46,7 +46,8 @@ module.exports = {
                     lowestAsk: json.hits[i].lowest_ask,
                     lastSale: json.hits[i].last_sale,
                     resellLinks: {
-                        stockX: 'https://stockx.com/' + json.hits[i].url
+                        stockX: 'https://stockx.com/' + json.hits[i].url,
+                        laced: await this.getLaced(json.hits[i].style_id)
                     }
                 });
                 if(json.hits[i].lowest_ask){
@@ -97,6 +98,16 @@ module.exports = {
             console.log(err);
             callback(err)
 
+        }
+    },
+    async getLaced(sku) {
+        try {
+            const res = await fetch(`https://www.laced.com/search.json?utf8=%E2%9C%93&search[sorted_by]=&search[term]=${sku}&page=1`);
+            const text = await res.json();
+            return "https://www.laced.com/" + text.products[0].href
+        } catch (err) {
+            console.log(err);
+            return false;
         }
     }
 }
